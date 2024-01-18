@@ -15,6 +15,9 @@ export default async function RootLayout({ children }) {
   return (
     <StoreProvider>
       <html lang="en">
+        <head>
+        <meta name="google-site-verification" content="_0dqCZKaG3x1r69ly1fpccfpIO-lFKs2IFrn5nf4i1w" />
+        </head>
         <body className={inter.className}>
           <Header />
           {children}

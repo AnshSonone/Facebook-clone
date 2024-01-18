@@ -6,7 +6,7 @@ export default function StorieCard({ src, name, profile }) {
     <div className="relative cursor-pointer">
       <Avatar
         src={profile}
-        className="relative sm:absolute z-50 sm:top-[8%] top-[8%] left-[5%] w-[4rem] h-[4rem] sm:w-[3rem] sm:h-[3rem]"
+        className="relative sm:absolute z-50 top-[8%] left-[5%] w-[4rem] h-[4rem] sm:w-[3rem] sm:h-[3rem]"
         alt="profile"
       />
       <Image

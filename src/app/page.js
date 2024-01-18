@@ -1,5 +1,4 @@
 import Siderbar from "@/app/component/Sidebar";
-import Image from "next/image";
 import Feed from "./component/Feed";
 
 export default function Home() {
