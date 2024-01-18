@@ -23,7 +23,7 @@ export default function Feed() {
             data: doc.data(),
           }));
           setPosts(newdata);
-          console.log(newdata);
+          // console.log(newdata);
         });
       } catch (err) {
         console.error(err);
