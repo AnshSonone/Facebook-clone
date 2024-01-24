@@ -37,7 +37,7 @@ export default function Stories() {
   const newUser = useSelector(selectUser);
 
   return (
-    <div className=" h-[19vh] ml-4 sm:ml-0 my-0 sm:h-[34vh] md:h-[38vh] w-[95vh] md:w-auto overflow-x-scroll overflow-y-hidden">
+    <div className=" h-[17vh] ml-4 sm:ml-0 my-0 sm:h-[34vh] md:h-[40vh] w-[95vh] md:w-auto overflow-x-scroll overflow-y-hidden">
       <div className="flex items-center space-x-2 rounded-md ">
         {/*===========================
          { This is profile of admin} 

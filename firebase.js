@@ -12,7 +12,8 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCjkSIJc1JQVsRNNlDU1D_n1aZndCfgxX0",
-  authDomain: "facebook-clone-b3747.firebaseapp.com",
+  // authDomain: "facebook-clone-b3747.firebaseapp.com",
+  authDomain: "https://facebook-clone-two-alpha.vercel.app/",
   projectId: "facebook-clone-b3747",
   storageBucket: "facebook-clone-b3747.appspot.com",
   messagingSenderId: "210247630335",
