@@ -16,8 +16,8 @@ export default function Feed() {
     const getPost = async () => {
       try {
         const getCollectionRef = collection(db, "posts");
-        const q = await query(getCollectionRef, orderBy("time", "desc"));
-        await onSnapshot(q, (snapshot) => {
+        const orderedPost = await query(getCollectionRef, orderBy("time", "desc"));
+        await onSnapshot(orderedPost, (snapshot) => {
           const newdata = snapshot.docs.map((doc) => ({
             id: doc.id,
             data: doc.data(),
@@ -30,10 +30,10 @@ export default function Feed() {
       }
     };
     getPost();
-  }, []);
+  }, [posts]);
 
   return (
-    <div className="absolute sm:left-[27%] md:left-[27%] top-[3%] sm:top-[4%]">
+    <div className="absolute sm:left-[27%] md:left-[27%] top-[3%] sm:top-[4%] ">
       <Story />
       <InputBox />
       <Widget />

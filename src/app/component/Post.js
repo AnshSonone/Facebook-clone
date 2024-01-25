@@ -1,11 +1,17 @@
+"use client";
 import Avatar from "@mui/material/Avatar";
 import RecommendTwoToneIcon from "@mui/icons-material/RecommendTwoTone";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ChatBubbleOutlineTwoToneIcon from "@mui/icons-material/ChatBubbleOutlineTwoTone";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { useState } from "react";
 
 export default function Post({ name, message, profile, photo, time }) {
+
+  const [like, setLike] = useState({ color: "gray" });
+  const [count, setCount] = useState(230);
+
   return (
     <div className="bg-white py-2 my-2 w-screen sm:w-[70vw] md:w-[45vw] rounded-[10px] shadow-sm ">
       <div className="flex items-center mx-3 pt-[2px] cursor-pointer">
@@ -41,14 +47,20 @@ export default function Post({ name, message, profile, photo, time }) {
             sx={{ height: "13px", width: "13px", color: "blue" }}
             className="mt-[4px]"
           />
-          <p className="text-[13px] pt-1 text-gray-500 ">230</p>
+          <p className="text-[13px] pt-1 text-gray-500 ">{count}</p>
         </div>
       </div>
 
-      {/* Socialtiles Section */}
-      <div className="flex items-center border-t-[1px] border-gray-200 px-3 my-1 sm:justify-around space-x-28 sm:space-x-0">
-        <div className="flex items-center py-2 sm:px-8 rounded-md hover:sm:bg-gray-200 my-1 cursor-pointer">
-          <ThumbUpOutlinedIcon sx={{ color: "gray" }} />
+      {/*==================
+       Socialtiles Section 
+       ===================*/}
+
+      <div className="flex items-center border-t-[1px] border-gray-200 px-4 my-1 sm:justify-around space-x-[75px] sm:space-x-0">
+        <div
+          className="flex items-center py-2 sm:px-8 rounded-md hover:sm:bg-gray-200 my-1 cursor-pointer"
+          onClick={() => setCount(count + 1) || setLike({ color: "blue" })}
+        >
+          <ThumbUpOutlinedIcon sx={like} />
           <p className=" hidden sm:block text-[14px] font-bold text-gray-500 ml-1">
             Likes
           </p>
@@ -66,7 +78,11 @@ export default function Post({ name, message, profile, photo, time }) {
           </p>
         </div>
         <div className=" flex items-center py-2 sm:px-8 rounded-md hover:sm:bg-gray-200 my-1 cursor-pointer">
-          <Avatar sx={{ width: "20px", height: "20px", color: "gray" }} />
+          <Avatar
+            sx={{ width: "20px", height: "20px", color: "gray" }}
+            variant="circle"
+            src={profile}
+          />
           <p className=" text-gray-500 ">
             <ArrowDropDownIcon sx={{ color: "gray" }} src={profile} />
           </p>

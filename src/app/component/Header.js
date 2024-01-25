@@ -3,7 +3,7 @@
 import Image from "next/image";
 import facebookLogo from "../../../public/facebook.png";
 import { Avatar } from "@mui/material";
-import {signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import {signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, signOut } from "firebase/auth";
 import { auth } from '../../../firebase';
 import { useSelector ,useDispatch } from 'react-redux'
 import {login, selectUser} from '@/store/slice'
@@ -23,8 +23,11 @@ export default function Header() {
             photoURL : res.user.photoURL
           })
       )
-      console.log(res.user.displayName);
-      console.log(data);
+    //   const credential = await FacebookAuthProvider.credentialFromResult(res);
+    // const accessToken = credential.accessToken;
+    // const accesstoken = localStorage.setItem("accesstoken", accessToken)
+    //   console.log(accesstoken);
+      // console.log(res);
     }catch(err){
       console.log(err)
     }

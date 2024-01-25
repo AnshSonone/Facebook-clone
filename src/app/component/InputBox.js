@@ -6,7 +6,7 @@ import VideocamIcon from "@mui/icons-material/Videocam";
 import PhotoIcon from "@mui/icons-material/Photo";
 import MoodIcon from "@mui/icons-material/Mood";
 import { db, storage } from "@/../firebase";
-import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
+import { ref, uploadBytes } from "firebase/storage";
 import {
   serverTimestamp,
   collection,
@@ -116,13 +116,13 @@ export default function InputBox() {
           </div>
         )}
       </div>
-      <div className="flex item-center justify-between my-3 mx-4  space-x-2">
+      <div className="flex item-center justify-between my-3 mx-2  space-x-2">
         <div
           className="flex flex-col items-center sm:flex-row hover:bg-gray-100
             		px-2 py-2 rounded-md cursor-pointer"
         >
           <VideocamIcon className="text-normal text-red-500" />
-          <button className="font-semibold text-gray-600 text-sm">
+          <button className="font-semibold text-gray-600 text-sm cursor-pointer">
             Live Video
           </button>
         </div>

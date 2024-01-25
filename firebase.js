@@ -13,7 +13,7 @@ import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyCjkSIJc1JQVsRNNlDU1D_n1aZndCfgxX0",
   // authDomain: "facebook-clone-b3747.firebaseapp.com",
-  authDomain: "https://facebook-clone-two-alpha.vercel.app/",
+  authDomain: "facebook-clone-b3747.firebaseapp.com",
   projectId: "facebook-clone-b3747",
   storageBucket: "facebook-clone-b3747.appspot.com",
   messagingSenderId: "210247630335",
@@ -26,5 +26,6 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
 const auth = getAuth(app)
+auth.languageCode = 'it';
 
 export {db, storage, auth};
