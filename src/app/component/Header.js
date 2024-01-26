@@ -200,7 +200,7 @@ export default function Header() {
 
         {/*profile pic*/}
         { !newUser &&
-          <button className="bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm sm:text-md  py-[5px] px-2 rounded-lg ml-2"
+          <button className= "bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm sm:text-md  py-[5px] px-2 rounded-lg ml-2 whitespace-nowrap"
           onClick={signIn}
           >Sign In</button>
         }
