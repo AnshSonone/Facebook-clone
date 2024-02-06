@@ -10,6 +10,7 @@ import { onSnapshot, orderBy, query } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 
 export default function Feed() {
+
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -23,7 +24,6 @@ export default function Feed() {
             data: doc.data(),
           }));
           setPosts(newdata);
-          // console.log(newdata);
         });
       } catch (err) {
         console.error(err);

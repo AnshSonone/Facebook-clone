@@ -81,7 +81,7 @@ export default function InputBox() {
   };
 
   return (
-    <div className=" bg-white py-3 px-3 rounded-md w-screen sm:w-[70vw] md:w-[45vw] ">
+    <div className=" bg-white py-3 px-3 rounded-md w-screen sm:w-[64vw] md:w-[49vw] ">
       <div className="flex items-center ">
         <Avatar
           sx={{ height: "45px", width: "45px" }}

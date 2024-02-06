@@ -6,39 +6,16 @@ import { Avatar } from "@mui/material";
 import {signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, signOut } from "firebase/auth";
 import { auth } from '../../../firebase';
 import { useSelector ,useDispatch } from 'react-redux'
-import {login, selectUser} from '@/store/slice'
+import {logout, selectUser} from '@/store/slice'
 
 export default function Header() {
 
   const dispatch = useDispatch();
-  const newUser = useSelector(selectUser)
-
-  const signIn = async () => {
-      try{
-      const provider = new GoogleAuthProvider();
-      let res = await signInWithPopup(auth, provider);
-      let data = dispatch(
-        login({
-            displayName : res.user.displayName,
-            photoURL : res.user.photoURL
-          })
-      )
-    //   const credential = await FacebookAuthProvider.credentialFromResult(res);
-    // const accessToken = credential.accessToken;
-    // const accesstoken = localStorage.setItem("accesstoken", accessToken)
-    //   console.log(accesstoken);
-      // console.log(res);
-    }catch(err){
-      console.log(err)
-    }
-  }
-  
-  
+  const newUser = useSelector(selectUser)  
 
   const logOut = () => {
-    alert('click')
     try{
-      let log = signOut(auth)
+      dispatch(logout(signOut(auth)))
     }catch(err){
       console.log(err)
     }
@@ -199,11 +176,6 @@ export default function Header() {
         </svg>
 
         {/*profile pic*/}
-        { !newUser &&
-          <button className= "bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm sm:text-md  py-[5px] px-2 rounded-lg ml-2 whitespace-nowrap"
-          onClick={signIn}
-          >Sign In</button>
-        }
         { newUser && <div onClick={logOut} className=""> 
         <Avatar sx={{width: '35px', height: '35px'}}
              src={newUser.photoURL}

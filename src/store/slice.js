@@ -12,7 +12,7 @@ export const counterSlice = createSlice({
         state.user = action.payload
       },
       logout: (state) => {
-        state.user = null
+         state.user = null
       }
     }
 })

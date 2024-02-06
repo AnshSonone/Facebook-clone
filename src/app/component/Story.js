@@ -35,9 +35,10 @@ import { useSelector } from "react-redux";
 
 export default function Stories() {
   const newUser = useSelector(selectUser);
+  const getUserInfo = localStorage.getItem("displayName");
 
   return (
-    <div className=" h-[17vh] ml-4 sm:ml-0 my-0 sm:h-[34vh] md:h-[40vh] w-[95vh] md:w-auto overflow-x-scroll overflow-y-hidden">
+    <div className=" h-[19vh] ml-4 sm:ml-0 my-0 sm:h-[34vh] md:h-[40vh] w-[95vh] md:w-auto overflow-x-scroll overflow-y-hidden">
       <div className="flex items-center space-x-2 rounded-md ">
         {/*===========================
          { This is profile of admin} 
@@ -46,18 +47,24 @@ export default function Stories() {
           <div className="mt-4 sm:mt-0 relative">
             <Avatar
               className="sm:absolute top-[10%] left-[5%] sm:w-[3rem] sm:h-[3rem]"
-              src={newUser ? newUser.photoURL : null}
-              sx={{ width: "65px", height: "65px" }}
+              src={newUser || getUserInfo ? newUser.photoURL : null}
+              sx={{
+                width: 60,
+                height: 60,
+                position: `${screen.width >= 640 ? "absolute" : "relatvie"}`,
+              }}
             />
             <Image
-              className="hidden sm:block rounded-lg"
-              src="https://i.pinimg.com/236x/2d/99/fc/2d99fc7a7662773703f3864562c254f5.jpg"
+              className="hidden sm:block rounded-lg aspect-[5/9]"
+              src="https://i.pinimg.com/564x/6f/8a/e4/6f8ae43d4f15105db2cf3f6047e9658d.jpg"
               width={120}
               height={120}
               alt="story"
             />
             <p className="font-bold sm:text-white text-xs sm:absolute top-[80%] left-[5%] text-black mt-1">
-              {newUser ? newUser.displayName.substr(0, 7) + "..." : null}
+              {newUser || getUserInfo
+                ? newUser.displayName.substr(0, 7) + "..."
+                : null}
             </p>
           </div>
         )}
